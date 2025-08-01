@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net4.8</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExMod.Exiled" Version="9.6.1" />
+  </ItemGroup>
+	
+	
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Mirror">
+      <HintPath>..\..\..\..\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Mirror.dll</HintPath>
+    </Reference>
+    <Reference Include="Pooling">
+      <HintPath>..\..\..\..\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\Pooling.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\..\..\..\steamcmd\steamapps\common\SCP Secret Laboratory Dedicated Server\SCPSL_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
