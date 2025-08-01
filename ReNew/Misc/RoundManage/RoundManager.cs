@@ -67,9 +67,16 @@ namespace ReNew.Misc.RoundManage
             this.now = Pick();
             if (now.OverrideEvent)
             {
-                plugin.UnRegisterNRQ();   
+                plugin.UnRegisterNRQ();
             }
             now.Register();
+            string nowname = "알 수 없음";
+            Translation.Translation.roundtranslate.TryGetByKey(now.RoundTypeName, out nowname);
+            foreach (var player in Exiled.API.Features.Player.List)
+            {
+               
+                player.Broadcast(duration: 9999, "이번 라운드는... " + nowname);
+            }
         }
         public void OnEnd(RoundEndedEventArgs args)
         {
