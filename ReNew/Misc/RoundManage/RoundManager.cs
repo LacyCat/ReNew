@@ -14,7 +14,7 @@ namespace ReNew.Misc.RoundManage
 {
     public class RoundManager
     {
-        public int MaxId = 0;
+        public static bool enabled = true;
         public BiDictionary<int, IRound> roundpair = new BiDictionary<int, IRound>();
         public Random random = new Random();
         public IRound now = new Normal();
@@ -30,23 +30,36 @@ namespace ReNew.Misc.RoundManage
         }
         public IRound Pick()
         {
-            if (roundpair.TryGetByKey(random.Next(0, MaxId + 1), out IRound r))
+            var rounds = roundpair.Values.ToList();
+
+            // 총 확률 합계를 계산
+            double totalChance = rounds.Sum(r => r.Chance);
+
+            // 확률 누적분포 계산
+            double roll = random.NextDouble() * totalChance;
+            double cumulative = 0.0;
+
+            foreach (var round in rounds)
             {
-                return r;
+                cumulative += round.Chance;
+                if (roll <= cumulative)
+                {
+                    return round;
+                }
             }
-            else
-            {
-                return new Normal();
-            }
+
+            // 만일 확률 누적 오류가 발생한 경우 기본 라운드 반환
+            return new Normal();
         }
+
         public void Register()
         {
-            Exiled.Events.Handlers.Server.RoundStarted += OnStart;
+            Exiled.Events.Handlers.Server.WaitingForPlayers += OnStart;
             Exiled.Events.Handlers.Server.RoundEnded += OnEnd;
         }
         public void UnRegister()
         {
-            Exiled.Events.Handlers.Server.RoundStarted -= OnStart;
+            Exiled.Events.Handlers.Server.WaitingForPlayers -= OnStart;
             Exiled.Events.Handlers.Server.RoundEnded -= OnEnd;
         }
         public void OnStart()

@@ -12,6 +12,7 @@ namespace ReNew.Misc.RoundManage.Rounds
         public string RoundTypeName { get; } = "normal";
         public int RoundId { get; } = 0;
         public bool OverrideEvent { get; } = false;
+        public double Chance { get; set; } = 1.0;
         public void Register()
         {}
 

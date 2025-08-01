@@ -11,6 +11,7 @@ namespace ReNew.Misc.RoundManage
         string RoundTypeName { get; }
         int RoundId { get; }
         bool OverrideEvent { get; }
+        double Chance { get; set; }
         void Register();
         void UnRegister();
     }

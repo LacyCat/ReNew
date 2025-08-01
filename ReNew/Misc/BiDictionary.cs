@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ReNew.Misc
 {
@@ -44,6 +41,9 @@ namespace ReNew.Misc
             }
             return false;
         }
+
+        public IEnumerable<TKey> Keys => _forward.Keys;
+        public IEnumerable<TValue> Values => _forward.Values;
 
         public int Count => _forward.Count;
     }
