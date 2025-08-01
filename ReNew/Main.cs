@@ -9,12 +9,14 @@ namespace ReNew
         public SpawnSans ss { get; set; }
         public ProximityChat pc { get; set; }
         public RoundManager manager { get; }
+        public Kick kick { get; set; }
         public Main()
         {
             this.Config.Debug = false;
             ss = new SpawnSans(this);
             pc = new ProximityChat(this);
             manager = new RoundManager(this);
+            kick = new Kick(this);
         }
         public override void OnEnabled()
         {
@@ -38,6 +40,13 @@ namespace ReNew
             ss.Unregister();
             pc.Unregister();
         }
-        
+        public void RegisterRQ()
+        {
+            kick.Register();
+        }
+        public void UnregisterRQ()
+        {
+            kick.Unregister();
+        }
     }
 }
