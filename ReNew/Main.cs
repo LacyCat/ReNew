@@ -26,6 +26,15 @@ namespace ReNew
             ss.Unregister();
             pc.Unregister();
         }
-        
+        public void UnRegisterNRQ()
+        {
+            ss.Unregister();
+            pc.Unregister();
+        }
+        public void RegisterNRQ()
+        {
+            ss.Register();
+            pc.Register();
+        }
     }
 }
