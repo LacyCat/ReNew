@@ -9,10 +9,10 @@ namespace ReNew.Misc.RoundManage.Rounds
 {
     public class Normal : IRound
     {
-        public string RoundTypeName { get; } = "normal";
-        public int RoundId { get; } = 0;
-        public bool OverrideEvent { get; } = false;
-        public double Chance { get; set; } = 1.0;
+        public string RoundTypeName => "normal";
+        public int RoundId => 0;
+        public bool OverrideEvent => false;
+        public double Chance { get; set; } = 0.75f;
         public void Register()
         {}
 

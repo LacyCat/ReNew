@@ -1,10 +1,12 @@
 ﻿using Exiled.API.Features;
 using MEC;
 using ReNew.Misc.RoundManage;
+using System;
 using System.Collections.Generic;
 
 namespace ReNew.Misc.BroadCast
 {
+    [Obsolete("이 코드는 RoundManager에 수정 및 병합되었으며 이 코드의 안정성이 검증되지 않았으니 사용하지 마세요",true)]
     public class BroadcastManager
     {
         private bool isBroadcastRunning = false;

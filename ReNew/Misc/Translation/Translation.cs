@@ -12,6 +12,7 @@ namespace ReNew.Misc.Translation
         static Translation()
         {
             roundtranslate.Add("normal", "일반");
+            roundtranslate.Add("randomsize", "랜덤 크기");
         }
         
     }
